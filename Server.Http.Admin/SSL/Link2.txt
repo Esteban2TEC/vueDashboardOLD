@@ -1,0 +1,8 @@
+http://www.aprendiendonodejs.com/2011/11/servidor-https-con-nodejs.html?m=1
+
+http://salvatorelab.es/2014/02/certificado-ssl-en-node-js-y-express/
+
+http://nodejs-es.github.io/api/tls.html
+
+https://programarivm.com/pon-en-marcha-un-servidor-https-en-node-js-con-express/
+https://programarivm.com/configura-un-servidor-ssl-con-apache2-para-simular-en-local-tu-sistema-e-commerce-por-ejemplo-un-magento-o-un-prestashop/

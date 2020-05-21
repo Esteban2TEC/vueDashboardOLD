@@ -1,0 +1,33 @@
+On Linux:
+
+1:
+
+- Abrir Puertos a todo internet:
+sudo iptables -A INPUT -i eth0 -p tcp --destination-port 33 -j ACCEPT
+
+- Abrir Puertos a IP de entrada específica:
+sudo iptables -A INPUT -i eth0 -s 99.88.77.0/24 -p tcp --destination-port 33 -j ACCEPT
+
+2:
+
+- Guardar las Reglas iptables:
+
+Guardamos las reglas de IPv4:
+iptables-save > /etc/iptables/rules.v4
+
+Guardamos las reglas de IPv6:
+ip6tables-save > /etc/iptables/rules.v6
+
+- Una vez guardadas puedes restaurar las reglas de forma manual…
+
+iptables-restore < /etc/iptables/rules.v4
+iptables-restore < /etc/iptables/rules.v6
+
+- Para que se mantengan las reglas al reiniciar el servidor, debes ejecutar lo siguiente:
+apt-get install iptables-persistent
+
+3:
+
+- Iniciar Instancias NodeJS en PM2:
+
+sudo pm2 start Start.LoginCobranzas.Rest.js -i 2 --name "LyCPlatform-API-REST" -l logs/LyCPlatform-API-REST.log -o logs/LyCPlatform-API-REST-out.log -e logs/LyCPlatform-API-REST-error.log

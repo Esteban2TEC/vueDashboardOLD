@@ -1,0 +1,1 @@
+forever start -p .\Logs\ -a -l Http.Server.forever.log -o .\logs\Http.Server.log -e .\Logs\Http.Server.Errors.log .\Start.js

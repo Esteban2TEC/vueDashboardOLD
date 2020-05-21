@@ -1,0 +1,62 @@
+Link:http://proyectosbeta.net/2016/01/crear-un-servidor-https-con-nodejs/
+
+Para crear un servidor https con NodeJS son los mismos pasos que al crear un servidor con http.
+Hace unas semanas que estoy probando NodeJS y ahora me dio la curiosidad de probar cosas nuevas como por ejemplo colocar el sitio usando ssl.
+
+Obs:
+
+Uso Ubuntu 14.04.3 LTS de 64 bits.
+Asumo que tienen instalado NodeJS y NPM.
+Se necesita tener el certificado ssl para colocarlo en el servidor que vamos a crear.
+Para crear el certificado tenemos que hacer lo siguiente:
+sudo mkdir /var/www/html/servidorHTTPSNodeJS
+cd /var/www/html/servidorHTTPSNodeJS
+sudo mkdir ssl
+sudo chown -R proyectosbeta:proyectosbeta /var/www/html/servidorHTTPSNodeJS
+cd ssl
+openssl req -new -newkey rsa:2048 -nodes -keyout server.key -out server.csr -config "C:\openssl-0.9.8h\openssl.cnf"
+openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
+
+Volvemos a la terminal y nos dirigimos donde se va a encontrar nuestro nuevo servidor https usando NodeJS. En mi caso seria la ruta /var/www/html/servidorHTTPSNodeJS:
+cd /var/www/html/servidorHTTPSNodeJS
+npm init
+
+Se crea el archivo package.json como el siguiente:
+{
+  "name": "servidorHTTPSNodeJS",
+  "version": "0.0.1",
+  "description": "Prueba sobre https con NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jose Alberto Gonzalez von Schmeling",
+  "license": "BSD-2-Clause"
+}
+
+Volvemos a entrar a la terminal y tecleamos lo siguiente:
+sudo npm install https
+sudo npm install express
+
+Ahora creamos index.js
+var https = require('https');
+var fs = require('fs');
+var app = require('express')();
+var options = {
+key: fs.readFileSync('./ssl/server.key'),
+cert: fs.readFileSync('./ssl/server.crt')
+};
+
+app.get(‘/’, function (req, res) {
+      res.send(‘Hola Mundo!!! Estamos usando https.’);
+});
+
+https.createServer(options, app).listen(3000, function () {
+      console.log(‘Iniciado!’);
+});
+
+Levantamos el servidor:
+node index.js
+
+Entramos a nuestro navegador favorito y escribimos en la barra de direcciones:
+https://localhost:3000

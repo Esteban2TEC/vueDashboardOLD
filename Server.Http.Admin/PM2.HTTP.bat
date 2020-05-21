@@ -1,0 +1,1 @@
+pm2 start .\Start.js -i 2 --name "LyC-AppWeb-2TecAdministracion" -l .\logs\LyC-AppWeb-2TecAdministracion.log -o .\logs\LyC-AppWeb-2TecAdministracion-out.log -e .\logs\LyC-AppWeb-2TecAdministracion-error.log

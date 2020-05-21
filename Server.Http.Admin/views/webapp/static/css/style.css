@@ -1,0 +1,4 @@
+#login-logout-div {
+        position: fixed;
+        z-index: 100; /* Make sure its above other items. */
+    }
