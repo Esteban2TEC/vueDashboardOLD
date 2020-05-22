@@ -1,0 +1,7 @@
+on Windows:
+
+pm2 start .\Start.LoginCobranzas.Rest.js -i 1 --name "MasterControl-WebApp:80" -l .\logs\MasterControl-WebApp.log -o .\logs\MasterControl-WebApp-out.log -e .\logs\MasterControl-WebApp-error.log
+
+on Linux:
+
+sudo pm2 start Start.js -i 1 --name "MasterControl-WebApp:80" -l logs/MasterControl-WebApp.log -o logs/MasterControl-WebApp-out.log -e logs/MasterControl-WebApp-error.log
