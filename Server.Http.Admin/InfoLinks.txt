@@ -1,0 +1,19 @@
+https://docs.nodejitsu.com/articles/HTTP/clients/how-to-create-a-HTTP-request/
+
+http://www.solvetic.com/tutoriales/article/1464-utilizando-el-objeto-http-en-nodejs/
+
+https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
+
+https://www.codementor.io/nodejs/tutorial/how-to-use-json-files-in-node-js
+
+- Actualizar NPM:
+https://styde.net/como-actualizar-npm-en-windows-con-npm-windows-upgrade/
+
+- MongoDB
+https://www.mongodb.com/download-center#community
+
+https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/
+
+- OracleDB
+
+https://community.oracle.com/docs/DOC-931127
