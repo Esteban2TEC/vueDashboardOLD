@@ -82,9 +82,9 @@ function serverStart(){
 
 	//CONFIGURACION MOTOR DE PLANTILLAS Handlebars
 	Server.engine('hbs', hbs({
-		//defaultLayout: 'main',
-		//layoutsDir: path.join(__dirname, 'views/layouts'),
-		//partialsDir: path.join(__dirname, 'views/partials'),
+		defaultLayout: 'index',
+		layoutsDir: path.join(__dirname, 'views/webapp'),
+		partialsDir: path.join(__dirname, 'views/partials'),
 		extname: 'hbs'
 	}));
 	Server.set('views', path.join(__dirname, 'views/webapp'));
